@@ -222,11 +222,13 @@
 
             if (designation == "0") {
               var reportTitle = `Name: ${name} Public Key: ${publicKey}`;
-              var buffer = Buffer(reportTitle);
+              console.log(reportTitle); 
+              var buffer = new Buffer(reportTitle);
 
               ipfs.files.add(buffer, (error, result) => {
                 if (error) {
-                  console.log(error);
+                  console.log(result);
+                  // console.log("ipfs ",error);
                 } else {
                   console.log("result:" + result);
                   ipfshash = result[0].hash;
